@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galaxy J1 Mini Emulator</title>
+  <link rel="stylesheet" href="style.css"/>
+<style>body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  width: 300px;
+  background: #111;
+  border: 8px solid #444;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px black;
+}
+
+.screen {
+  padding: 15px;
+  background: #000;
+  color: white;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.stats p {
+  margin: 5px 0;
+}
+
+.buttons button,
+.extras button {
+  margin: 5px;
+  padding: 8px;
+  width: 100%;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.extras {
+  margin-top: 10px;
+}
+
+.extras input {
+  width: 60px;
+  margin-left: 5px;
+}
+
+.nav-bar {
+  background: #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.nav-bar button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.camera-status {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ccc;
+}
+
+.warning {
+  margin-top: 10px;
+  padding: 10px;
+  background: red;
+  color: white;
+  border-radius: 5px;
+}</style>
+<body>
+  <div class="phone">
+    <div class="screen">
+      <div class="status-bar">
+        <span id="android-version" onclick="checkAndroidClick()">Android 5.1.1</span>
+        <span id="battery">Bateria: 100%</span>
+      </div>
+
+      <div class="stats">
+        <p>RAM: <span id="ram">768 MB</span></p>
+        <p>Armazenamento: <span id="storage">8 GB</span></p>
+        <p>Processador: <span id="processor">1.2 GHz</span></p>
+      </div>
+
+      <div class="buttons">
+        <button onclick="enterGame()">🎮 Entrar no Jogo</button>
+        <button onclick="useApp()">📱 Abrir Aplicativo</button>
+        <button onclick="useCamera()">📸 Usar Câmera</button>
+        <button onclick="chargePhone()">🔌 Carregar Celular</button>
+        <button onclick="freeSpace()">🧹 Liberar Espaço</button>
+        <button onclick="boostProcessor()">⚙️ Liberar Processador</button>
+        <button onclick="handleBurgerClick()">🍔</button>
+        <button onclick="handleSusClick()">🤨</button>
+      </div>
+
+      <div class="extras">
+        <label>Cartão SD (GB): <input id="sdInput" type="number" /></label>
+        <button onclick="addSD()">Adicionar SD</button><br/>
+        <label>RAM Plus (MB): <input id="ramInput" type="number" /></label>
+        <button onclick="addRAM()">Adicionar RAM Plus</button>
+      </div>
+
+      <div class="camera-status" id="camera-status"></div>
+      <div class="warning" id="warning" style="display: none;">Seu dispositivo está sem espaço! Vá liberar memória.</div>
+    </div>
+
+    <div class="nav-bar">
+      <button>◀</button>
+      <button>▢</button>
+      <button>●</button>
+    </div>
+  </div>
+
+  <script src="j1mini.js"></script>
+</body>
+</html>
